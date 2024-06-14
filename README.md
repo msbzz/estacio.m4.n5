@@ -159,8 +159,8 @@ O servidor Node.js recebe os dados do IoT Hub e os transmite via WebSocket para 
      - Selecione "Local Git/FTPS credentials" para obter o URL do repositório Git, 
         o Nome de Usuário e a Senha.
 
-       ![image](images/ConfigRepositorioGitAzure.png)
-
+       ![image](images/configRepositorioGitAzure.png)
+        
      - Anote essas informações, pois serão usadas para autenticação.
 
    2. Configurar o Repositório Localmente:
@@ -199,7 +199,7 @@ O servidor Node.js recebe os dados do IoT Hub e os transmite via WebSocket para 
 
   - acesse o kunduru console 
 
-       ![image](images/configuracoesAvancadasKuduConsole.png)
+       ![image](images/acessandoKuduConsole.png)
 
   - liste as pastas e acesse  'site/wwwroot' 
 
