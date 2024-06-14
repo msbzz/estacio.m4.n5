@@ -187,6 +187,25 @@ O servidor Node.js recebe os dados do IoT Hub e os transmite via WebSocket para 
   - realize o 'git commit -m "SUA DESCRIÇÃO"
   - realize o 'git push -u azure master'
 
+  se quiser pode conferir o push no repositório git do azure
+
+  - acesse o meu lateral ferramentas de seu web app e acesse o link 'ir'
+
+  [image](images/navegarAteKudunConsole.png)
+
+  - em Azure App Service selecione o menu 'Bash' 
+
+  [image](images/configuracoesAvancadasKuduConsole.png)
+
+ - acesse o kunduru console 
+
+  [image](images/configuracoesAvancadasKuduConsole.png)
+
+ - liste as pastas e acesse  'site/wwwroot' 
+
+  [image](images/checkandoPushAzure.png)
+
+
 3. **Verificar a Implantação**:
 
    2.  Testar a Aplicação:
