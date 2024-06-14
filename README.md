@@ -159,7 +159,7 @@ O servidor Node.js recebe os dados do IoT Hub e os transmite via WebSocket para 
      - Selecione "Local Git/FTPS credentials" para obter o URL do repositório Git, 
         o Nome de Usuário e a Senha.
 
-        ![image](images/ConfigRepositorioGitAzure.png)
+       ![image](images/ConfigRepositorioGitAzure.png)
 
      - Anote essas informações, pois serão usadas para autenticação.
 
@@ -191,19 +191,19 @@ O servidor Node.js recebe os dados do IoT Hub e os transmite via WebSocket para 
 
   - acesse o meu lateral ferramentas de seu web app e acesse o link 'ir'
 
-  [image](images/navegarAteKudunConsole.png)
+       ![image](images/navegarAteKudunConsole.png)
 
   - em Azure App Service selecione o menu 'Bash' 
 
-  [image](images/configuracoesAvancadasKuduConsole.png)
+       ![image](images/configuracoesAvancadasKuduConsole.png)
 
- - acesse o kunduru console 
+  - acesse o kunduru console 
 
-  [image](images/configuracoesAvancadasKuduConsole.png)
+       ![image](images/configuracoesAvancadasKuduConsole.png)
 
- - liste as pastas e acesse  'site/wwwroot' 
+  - liste as pastas e acesse  'site/wwwroot' 
 
-  [image](images/checkandoPushAzure.png)
+       ![image](images/checkandoPushAzure.png)
 
 
 3. **Verificar a Implantação**:
