@@ -119,40 +119,92 @@ O servidor Node.js recebe os dados do IoT Hub e os transmite via WebSocket para 
 
 ### Etapas 
 
-1. **Migração para a Nuvem**:
-    - Configuração de um App Service no Azure para hospedar a aplicação.
-    - Configuração do repositório Git no Azure para gerenciamento de código.
+1. **Criar e Configurar o Aplicativo Web no Azure**:
+   1.Criação do Aplicativo Web:
 
-2. **Configuração de Desdobramento (Deployment)**:
-    - Configuração do desdobramento contínuo utilizando o Git para enviar as atualizações diretamente ao App Service.
-    - Verificação das credenciais de publicação e configuração das mesmas no portal do Azure.
+   1. Acesse o portal do Azure.
+     - Navegue até "Criar um recurso" e selecione "Aplicativo Web".
+     - Preencha os detalhes necessários, como Nome do Aplicativo, Assinatura, Grupo de Recursos, 
+       Plano de Serviço de Aplicativo, entre outros
 
-3. **Ativação de Emuladores Locais**:
-    - **Emulador de Temperatura**: Ativar o emulador de temperatura localmente para simular os dados de entrada.
-    - **Servidor Local**: Ativar o aplicativo do servidor local que emula o ambiente de produção.
+       ![image](images/appWebAzure.png)
+   
+     - teste execução
 
-4. **Desdobramento e Execução no Azure**:
-    - Realizar o push do código para o repositório Git interno do Azure.
-    - Executar o comando `npm start` no repositório hospedado no Azure para iniciar a aplicação.
-    - Verificar o funcionamento da aplicação em produção, garantindo que ela esteja recebendo dados do emulador de temperatura e exibindo-os corretamente na interface web.
+      ![image](images/appWebAzureExecutando.png)
 
-### Dificuldades e Soluções
+   2. Configuração Básica:
 
-1. **Problemas de Autenticação**:
-    - Enfrentamos dificuldades com a autenticação ao tentar fazer o push para o repositório Git no Azure. Foram necessárias várias verificações e reconfigurações das credenciais de publicação.
+     - Após a criação, vá para a página de "Configurações" do seu aplicativo web.
 
-2. **Configuração do SCM (Source Control Management)**:
-    - Tivemos que habilitar a autenticação básica para SCM no portal do Azure, o que não estava ativado por padrão. Isso foi essencial para permitir o push do código para o repositório no Azure.
+     - Em "Configurações Gerais", configure o ambiente de execução (runtime stack) conforme 
+       necessário (por exemplo, Node.js, .NET, etc.).
 
-3. **Execução de Emuladores Locais**:
-    - Garantir que os emuladores locais de temperatura e o servidor estavam corretamente configurados e funcionando antes de realizar o push para o Azure.
+       ![image](images/configuracaoAppWebAzure.png)
 
-### Resultados Esperados
-- A aplicação deveria estar configurada no Azure App Service com sucesso.
-- As credenciais de publicação deveriam estar verificadas e configuradas corretamente.
-- Após o push do código, o comando `npm start` deveria ser executado no repositório do Azure para iniciar a aplicação.
-- A aplicação deveria ser testada no ambiente de produção, recebendo dados do emulador de temperatura e exibindo-os em tempo real na interface web.
+   3. Habilitar Autenticação SCM:
 
-### Resultados Alcançados
-- Embora não tenha sido possível concluir o push devido a problemas de autenticação, todos os passos necessários foram identificados e documentados.
-- As configurações e verificações realizadas prepararam o ambiente para uma futura tentativa de deploy.
+     - No menu lateral, selecione "Configurações" e depois "Geral".
+
+     - Ative "SCM Basic Auth Publishing" e "FTP Basic Auth Publishing".
+
+2. **Configuração do Repositório Git Local**:
+
+   1. Obtenha as Credenciais do Git:
+
+     - Navegue até "Centro de Implantação" no menu lateral.
+
+       ![image](images/menuConfigRepositorioGitAzure.png)
+
+     - Selecione "Local Git/FTPS credentials" para obter o URL do repositório Git, 
+        o Nome de Usuário e a Senha.
+
+        ![image](images/ConfigRepositorioGitAzure.png)
+
+     - Anote essas informações, pois serão usadas para autenticação.
+
+   2. Configurar o Repositório Localmente:
+
+     - No terminal (PowerShell, Bash, etc.), navegue até o diretório do seu projeto.
+
+
+     - Configure o repositório remoto com as credenciais obtidas:   
+     
+      ```sh
+     git remote remove azure
+     git remote add azure https://<username>:<password>@<seu_app>.scm.azurewebsites.net:443/<seu_app>.git
+      ``` 
+
+2. **Realizar atualização para o repositorio git Azure**:
+
+- No terminal faça o 'git clone' apenas do projeto 'Servirdor Node.js'
+
+  obs1: para isso vc precisará ter o projeto separado em um repositório
+
+  - após clonar o projeto, entre na pasta e configure o arquivo .env não 
+   esquendo de remover a referencia do arquivo local ''.gitignore'
+  - realize o 'git add .'
+  - realize o 'git commit -m "SUA DESCRIÇÃO"
+  - realize o 'git push -u azure master'
+
+3. **Verificar a Implantação**:
+
+   2.  Testar a Aplicação:
+
+     - Ative o emulador local em python do sensor de umidade
+
+        ```sh
+        npm start ou pelo vscode ou apenas dando um double click no arquivo python
+        
+        ```
+
+   ![image](images/ativando_emulador_sensor_temp_umidade2.png)
+
+
+     - Acesse a URL do seu aplicativo web para verificar se está funcionando conforme esperado.
+
+ 
+    ![image](images/appWebAzureExecutando2.png)
+    
+
+
