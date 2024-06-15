@@ -7,7 +7,7 @@ Este projeto esta dividido em duas fases que são :
 
  - Fase 1, consiste em um sistema para simulação, coleta e visualização de dados de dispositivos IoT. O projeto inclui um código Python que simula um sensor IoT, um servidor Node.js para receber e transmitir os dados, e uma interface web para visualizar esses dados em tempo real.
  
- - Fase 2 , tem o objetivo de migrar a aplicação local para a nuvem, utilizando os serviços do Azure para hospedar a aplicação e gerenciar a infraestrutura.
+ - Fase 2 , tem o objetivo de migrar a aplicação local, entenda-se o servidor Node.js, para a nuvem, utilizando os serviços do Azure para hospedar a aplicação e gerenciar a infraestrutura que continuará a receber dados do emulador do sensor de temperatura local utilizado na fase 1
 
 
 obs: todo projeto segue a especificação : https://sway.cloud.microsoft/s/pAU9GmfP8IF2OLSg/embed
